@@ -1,0 +1,37 @@
+{
+  "name": "aluna-token-vesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/test-environment": "^0.1.5",
+    "@openzeppelin/test-helpers": "^0.3.2",
+    "@truffle/hdwallet-provider": "^1.0.43",
+    "chai": "^4.2.0",
+    "chai-bn": "^0.1.1",
+    "chokidar-cli": "^2.1.0",
+    "expect.js": "^0.3.1",
+    "ganache-cli": "^6.10.1",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "solhint": "^3.2.0",
+    "soljitsu": "^1.0.0",
+    "solidity-coverage": "^0.7.10"
+  },
+  "scripts": {
+    "test": "mocha --exit --recursive",
+    "watch-test": "chokidar contracts/*.sol contracts/**/*.sol test/*.js test/**/*.js -c 'npm test' --silent --initial"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onepercent_devs/aluna-token-vesting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/onepercent_devs/aluna-token-vesting#readme"
+}
