@@ -32,7 +32,7 @@ import "./LPTokenWrapper.sol";
 
 contract AlunaBoostPool is LPTokenWrapper, Ownable {
     
-    IERC20 public alunaToken;
+    IERC20 public rewardToken;
     IERC20 public boostToken;
     ITreasury public treasury;
     SwapRouter public swapRouter;
@@ -81,7 +81,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     constructor(
         uint256 _tokenCapAmount,
         IERC20 _stakeToken,
-        IERC20 _alunaToken,
+        IERC20 _rewardToken,
         IERC20 _boostToken,
         address _treasury,
         SwapRouter _swapRouter,
@@ -90,7 +90,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     ) public LPTokenWrapper(_stakeToken) {
         tokenCapAmount = _tokenCapAmount;
         boostToken = _boostToken;
-        alunaToken = _alunaToken;
+        rewardToken = _rewardToken;
         treasury = ITreasury(_treasury);
         stablecoin = treasury.defaultToken();
         swapRouter = _swapRouter;
@@ -314,7 +314,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         uint256 reward = earned(user);
         if (reward > 0) {
             rewards[user] = 0;
-            alunaToken.safeTransfer(user, reward);
+            rewardToken.safeTransfer(user, reward);
             emit RewardPaid(user, reward);
         }
     }

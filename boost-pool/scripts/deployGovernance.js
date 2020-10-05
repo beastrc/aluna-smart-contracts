@@ -1,29 +1,24 @@
 usePlugin('@nomiclabs/buidler-ethers');
-const fs = require('fs');
-const path = require('path');
 const BN = require('ethers').BigNumber;
 const { pressToContinue } = require('./checkpoint');
-
+const settings = require("./_settings.js");
 const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
-let alunaTokenAddress;
+
 let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
-let multisig;
-let tokens;
 
 task('deployGovernance', 'deploy Aluna Governance').setAction(async () => {
 
-  const configPath = path.join(__dirname, './deploy_settings.json');
-
-  readParams(JSON.parse(fs.readFileSync(configPath, 'utf8')));
-
-  // deploy treasury
+  network = await ethers.provider.getNetwork();
+ 
   console.log('Deploying Treasury');
+  const govSettings = settings[network.name].gov;
+  console.log (govSettings)
 
   const Treasury = await ethers.getContractFactory('Treasury');
   const treasury = await Treasury.deploy(
     uniswapRouter,
-    stablecoin,
-    multisig,
+    govSettings.stableCoin,
+    govSettings.newOwner,
     { gasPrice: gasPrice }
   );
 
@@ -37,7 +32,7 @@ task('deployGovernance', 'deploy Aluna Governance').setAction(async () => {
 
   const Gov = await ethers.getContractFactory('AlunaGov');
   const gov = await Gov.deploy(
-    alunaTokenAddress,
+    govSettings.alunaTokenAddress,
     treasury.address,
     uniswapRouter
   );
@@ -56,13 +51,6 @@ task('deployGovernance', 'deploy Aluna Governance').setAction(async () => {
   // transfer treasury ownership to multisig
   console.log('transferring treasury ownership to multisig');
 
-  await treasury.transferOwnership(multisig);
+  await treasury.transferOwnership(govSettings.newOwner);
   await pressToContinue();
 });
-
-function readParams(jsonInput) {
-  multisig = jsonInput.multisig;
-  stablecoin = jsonInput.stablecoin;
-  alunaTokenAddress = jsonInput.alunaToken;
-  tokens = jsonInput.tokens;
-}

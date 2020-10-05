@@ -9,9 +9,7 @@ task('deployMockTokens', 'Deploy preconditions')
     .setAction(async () => {
 
       network = await ethers.provider.getNetwork();
-      const [deployer] = await ethers.getSigners();
-      let deployerAddress = await deployer.getAddress();
-
+      
       const BoostToken = await ethers.getContractFactory('BoostToken')
       const AlunaToken = await ethers.getContractFactory('Token')
       const Stable = await ethers.getContractFactory('Token')
