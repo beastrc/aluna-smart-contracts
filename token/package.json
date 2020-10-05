@@ -1,0 +1,62 @@
+{
+  "name": "aluna-smart-contracts",
+  "version": "0.0.1",
+  "description": "Smart contracts for the Aluna Platform - https://aluna.social",
+  "files": [
+    "build",
+    "contracts"
+  ],
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:sol",
+    "lint:fix": "npm run lint:js:fix",
+    "lint:js": "eslint test lib/src",
+    "lint:js:fix": "npm run lint -- --fix",
+    "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
+    "test": "scripts/test.sh",
+    "coverage": "scripts/coverage.sh",
+    "codecov": "node_modules/.bin/codecov"
+  },
+  "engines": {
+    "node": "0.10.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alunacrypto/aluna-token.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart-contracts",
+    "wallet"
+  ],
+  "authors": "Augusto Lemble <augusto.lemble@levelk.io>, Michael Raybman <michael.raybman@levelk.io>, John Kelleher <john.kelleher@levelk.io>, Henrique Matias <tech@aluna.social>",
+  "license": "MIT",
+  "bugs": {
+    "url": "git@github.com:alunacrypto/aluna-token/issues"
+  },
+  "homepage": "git@github.com:alunacrypto/aluna-token",
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "codecov": "^3.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-mocha-no-only": "^1.1.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "ethereumjs-util": "^6.2.0",
+    "ganache-cli": "^6.5.0",
+    "openzeppelin-test-helpers": "^0.5.1",
+    "solhint": "^1.5.0",
+    "solidity-coverage": "^0.6.7",
+    "truffle": "^5.0.29",
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.4.0"
+  }
+}

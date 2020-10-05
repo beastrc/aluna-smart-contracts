@@ -1,0 +1,20 @@
+{
+  "manifestVersion": "2.2",
+  "contracts": {
+    "AlunaToken": "AlunaToken",
+    "RewardsPool": "RewardsPool"
+  },
+  "dependencies": {},
+  "name": "aluna-smart-contracts",
+  "version": "1.0.0",
+  "compiler": {
+    "manager": "truffle",
+    "compilerSettings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": "200"
+      }
+    }
+  },
+  "telemetryOptIn": true
+}

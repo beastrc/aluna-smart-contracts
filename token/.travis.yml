@@ -1,0 +1,12 @@
+dist: xenial
+sudo: required
+group: beta
+language: node_js
+node_js:
+- 10
+script:
+- set -e
+- npm run lint
+- npm run coverage
+after_success:
+- npm run codecov
