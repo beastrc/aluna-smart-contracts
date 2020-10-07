@@ -14,13 +14,13 @@ module.exports = {
   defaultNetwork: 'buidlerevm',
   networks: {
     kovan: {
-      url: `https://kovan.infura.io/v3/cab9930f8ed349d0b3a3b9bba5a00bd5`,
-      accounts: ['0xfb7bacb863436010ff2e5d9a8363e62f0ec353ff55a6e552675b6a7ec2faa5bd'],
+      url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [process.env.PRIVATE_KEY],
       timeout: 20000
     },
     mainnet: {
-      url: `https://mainnet.infura.io/v3/cab9930f8ed349d0b3a3b9bba5a00bd5`,
-      accounts: ['0xfb7bacb863436010ff2e5d9a8363e62f0ec353ff55a6e552675b6a7ec2faa5bd'],
+      url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [process.env.PRIVATE_KEY],
       timeout: 20000
     },
     coverage: {
@@ -36,7 +36,7 @@ module.exports = {
   },
   etherscan: {
     url: "https://api-kovan.etherscan.io/api",
-    apiKey: ['R34BTU67C6VP7TWP7GH2514PHRJ3J6G3F1']
+    apiKey: process.env.ETHERSCAN_API_KEY
   },
   paths: {
     sources: './contracts',
