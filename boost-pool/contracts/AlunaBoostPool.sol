@@ -28,15 +28,20 @@ import "./interfaces/IERC20Burnable.sol";
 import "./interfaces/ITreasury.sol";
 import "./interfaces/ISwapRouter.sol";
 import "./LPTokenWrapper.sol";
+import "./AdditionalMath.sol";
 
 
 contract AlunaBoostPool is LPTokenWrapper, Ownable {
+    
+    using AdditionalMath for uint256;
+    
     
     IERC20 public rewardToken;
     IERC20 public boostToken;
     ITreasury public treasury;
     SwapRouter public swapRouter;
     IERC20 public stablecoin;
+    
     
     uint256 public tokenCapAmount;
     uint256 public starttime;
@@ -147,7 +152,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         }
 
         // 2.5% decrease for every 2 hour interval since last global boost purchase
-        boosterPrice = pow(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
+        boosterPrice = AdditionalMath.pow(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
 
         // adjust price based on expected increase in boost supply
         // boostersBought has been incremented by 1 already
@@ -317,26 +322,5 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
             rewardToken.safeTransfer(user, reward);
             emit RewardPaid(user, reward);
         }
-    }
-
-   /// Imported from: https://forum.openzeppelin.com/t/does-safemath-library-need-a-safe-power-function/871/7
-   /// Modified so that it takes in 3 arguments for base
-   /// @return a * (b / c)^exponent 
-   function pow(uint256 a, uint256 b, uint256 c, uint256 exponent) internal pure returns (uint256) {
-        if (exponent == 0) {
-            return a;
-        }
-        else if (exponent == 1) {
-            return a.mul(b).div(c);
-        }
-        else if (a == 0 && exponent != 0) {
-            return 0;
-        }
-        else {
-            uint256 z = a.mul(b).div(c);
-            for (uint256 i = 1; i < exponent; i++)
-                z = z.mul(b).div(c);
-            return z;
-        }
-    }
+    }   
 }
