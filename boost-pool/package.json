@@ -26,6 +26,7 @@
     "chai-as-promised": "^7.1.1",
     "chai-bn": "^0.2.1",
     "ethereum-waffle": "^3.0.2",
+    "moment": "^2.29.1",
     "solc": "^0.5.17",
     "solidity-coverage": "^0.7.10"
   },

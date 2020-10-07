@@ -1,6 +1,4 @@
-
 module.exports = {
-  
   kovan: {
     gov: {
       newOwner:"0x3Ed68019F385A51FA92E6e1009C4Afa2e4Cc3e1F",

@@ -1,6 +1,6 @@
 usePlugin('@nomiclabs/buidler-ethers');
 const BN = require('ethers').BigNumber;
-const { pressToContinue } = require('./checkpoint');
+const pressToContinue = require('./pressToContinue');
 const settings = require("./_settings.js");
 const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 
