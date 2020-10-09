@@ -48,23 +48,17 @@ Tests were done on the KOVAN network in order to interact with uniswap contracts
 1. deploy mock tokens
 
 ```
-$ npx buidler deployMockTokens --network --kovan
-```
-
-1. deploy mock tokens
-
-```
-$ npx buidler deployMockTokens --network --kovan
+$ npx buidler deploy:mock-tokens --network --kovan
 ```
 
 2. to create Aluna Governance smart contracts, you need to define on ./scripts/_settings.js newOwner, boostToken, alunaTokenAddress and stableCoin adresses.
 
 ```
-$ npx buidler deployGovernance --network --{kovan or mainnet}
+$ npx buidler deploy:governance --network --{kovan or mainnet}
 ```
 
 3. to create Aluna Governance smart contracts, you need to define on ./scripts/_settings.js all settings
 
 ```
-$ npx buidler deployPool --pool {your pool name} --network --{kovan or mainnet}
+$ npx buidler deploy:pool --pool {your pool name} --network --{kovan or mainnet}
 ```
