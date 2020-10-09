@@ -5,7 +5,8 @@ const path = require('path');
 const BN = require('ethers').BigNumber;
 const pressToContinue = require('./pressToContinue');
 
-task('deployMockTokens', 'Deploy preconditions').setAction(async () => {
+task('deploy:mock-tokens', 'Deploy mock tokens to test net')
+.setAction(async () => {
   network = await ethers.provider.getNetwork();
   
   const BoostToken = await ethers.getContractFactory('BoostToken')
