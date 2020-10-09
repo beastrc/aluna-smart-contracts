@@ -57,7 +57,7 @@ $ npx buidler deploy:mock-tokens --network --kovan
 $ npx buidler deploy:governance --network --{kovan or mainnet}
 ```
 
-3. to create Aluna Governance smart contracts, you need to define on ./scripts/_settings.js all settings
+3. to create Aluna Pools smart contracts, you need to define all settings on ./scripts/_settings.js 
 
 ```
 $ npx buidler deploy:pool --pool {your pool name} --network --{kovan or mainnet}
