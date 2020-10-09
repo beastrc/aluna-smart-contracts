@@ -1,5 +1,4 @@
 usePlugin('@nomiclabs/buidler-ethers');
-const bre = require("@nomiclabs/buidler");
 
 const BN = require('ethers').BigNumber;
 const moment = require("moment")
@@ -12,7 +11,7 @@ let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
 
 task('deploy:pool', 'Deploy a pool specified on --pool option')
 .addParam("pool", "The pool Name")
-.setAction(async (taskArgs) => {
+.setAction(async (taskArgs, bre) => {
 
   const network = await ethers.provider.getNetwork();    
   const poolSettings = settings[network.name].pools[taskArgs.pool];

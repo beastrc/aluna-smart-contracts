@@ -6,12 +6,15 @@ const BN = require('ethers').BigNumber;
 const pressToContinue = require('./pressToContinue');
 
 task('deploy:mock-tokens', 'Deploy mock tokens to test net')
-.setAction(async () => {
+.setAction(async (bre) => {
   network = await ethers.provider.getNetwork();
   
   const BoostToken = await ethers.getContractFactory('BoostToken')
   const AlunaToken = await ethers.getContractFactory('Token')
   const Stable = await ethers.getContractFactory('Token')
+
+  // compile contracts
+  await bre.run("compile");
 
   //Deploy Boost
   console.log('Deploying BoostToken');
