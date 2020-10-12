@@ -38,6 +38,9 @@ to Reward participants of the community.
 ## Contracts
 
 ### AlunaToken.sol
+
+ZeppelinOS-based initializable ugradable ERC-20 token. Provides additional functionality to process payments using the PaymentProcessor contract.
+
   - Implements the ERC-20 standard
   - Provides functionality to process payments using the PaymentProcessor contract
   - Provices groupTransfer function
@@ -45,8 +48,6 @@ to Reward participants of the community.
 #### AlunaToken::groupTransfer(address[] memory recipients, uint256[] memory values)
 
  - [source code](https://github.com/levelkdev/aluna-smart-contracts/blob/readme-updates/contracts/AlunaToken.sol#L39-L51)
-
-ZeppelinOS-based initializable ugradable ERC-20 token. Provides additional functionality to process payments using the PaymentProcessor contract.
 
 
 ### PaymentReceiver.sol
@@ -112,11 +113,11 @@ This method allows Aluna Org to refund a total or partial payment.
 
 
 ### RewardsPool.sol
+
  - ZeppelinOS-based initializable ugradable contract
 
-The [Rewards Pool](contracts/RewardsPool.sol) is responsible for keeping all the ALN intended to be
-used as rewards on the website.
-
+The [Rewards Pool](contracts/RewardsPool.sol) is responsible for keeping all the 
+ALN intended to be used as rewards on the website.
 
 
 #### RewardsPool::deposit
@@ -162,7 +163,8 @@ check its balance in the Token Contract.
   const balance = await tokenContract.methods.balanceOf(rewardsProxyAddress).call()
 ````
 
-ZeppelinOS-based initializable ugradable contract that receives the rewards cut of each payment. Provides withdrawal functionality to administrators.
+ZeppelinOS-based initializable ugradable contract that receives the rewards cut 
+of each payment. Provides withdrawal functionality to administrators.
 
 ### Build groupTransferData
 
@@ -178,21 +180,20 @@ Node 10 is required for running the tests and contract compilation.
 
 ```sh
 git clone https://github.com/levelkdev/aluna-smart-contracts
-nvm install
+nvm use 10
 npm install
 npm test
 ```
 
 ## Deployment
 
-We are using the upgradeability proxy from [openzeppelin](https://docs.openzeppelin.com/sdk/2.5/)and the deployment pipeline is using their system as well. You can read more
+We are using the upgradeability proxy from [openzeppelin](https://docs.openzeppelin.com/sdk/2.5/)
+and the deployment pipeline is using their system as well. You can read more
 about the [publishing process](https://docs.openzeppelin.com/sdk/2.5/publish) and
 [upgrading](https://docs.openzeppelin.com/sdk/2.5/api/upgrades) in `openzeppelin`
 documentation.
 
-In order to interact with "real" networks such as `mainnet`, `ropsten` or others,
-you need to setup a `keys.json` file used by [truffle](https://truffleframework.com/)
-that does the heavy lifting for openzeppelin.
+You need to create a file called `kesys.json` as it's the file is used by [truffler.js](./truffle.js)
 
 ```json
 {
@@ -224,5 +225,5 @@ The Token and RewardsPool contract are owned by a multisignature wallet.
 ## Platform Links
 
 - [https://aluna.social](https://aluna.social)
-- [https://token.aluna.social](https://aluna.social)
+- [https://aluna.social/token](https://aluna.social/token)
 - [https://blog.aluna.social](https://blog.aluna.social)

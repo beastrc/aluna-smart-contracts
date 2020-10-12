@@ -9,9 +9,9 @@ const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
 
 
-task('deployPool', 'deploy Aluna pools')
-  .addParam("pool", "The pool Name")
-  .setAction(async (taskArgs) => {
+task('deploy:pool', 'Deploy a pool specified on --pool option')
+.addParam("pool", "The pool Name")
+.setAction(async (taskArgs, bre) => {
 
   const network = await ethers.provider.getNetwork();    
   const poolSettings = settings[network.name].pools[taskArgs.pool];
@@ -36,6 +36,9 @@ task('deployPool', 'deploy Aluna pools')
   console.log("rewardAmount      : 100000000000000000000")
   console.log("")
   await pressToContinue()
+
+  // compile contracts
+  await bre.run("compile");
 
   // deploy pool
   const RewardsPool = await ethers.getContractFactory('AlunaBoostPool');
