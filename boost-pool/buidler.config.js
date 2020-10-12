@@ -4,9 +4,9 @@ usePlugin("@nomiclabs/buidler-etherscan");
 usePlugin("solidity-coverage");
 
 
-require('./scripts/deploy-governance');
-require('./scripts/deploy-pool');
-require('./scripts/deploy-mock-tokens');
+require('./scripts/deployGovernance');
+require('./scripts/deployPool');
+require('./scripts/deployMockTokens');
 
 require('dotenv').config();
 

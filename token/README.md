@@ -3,9 +3,8 @@
 [![Coverage Status](https://codecov.io/gh/alunacrypto/aluna-token/branch/master/graph/badge.svg)](https://codecov.io/gh/alunacrypto/aluna-token)
 
 
-- [Introduction](#aluna-smart-contracts)
+- [Introduction](#Introduction)
 - [Contracts](#contracts)
-    - [AlunaCrowdsale.sol](#alunacrowdsalesol)
     - [AlunaToken.sol](#alunatokensol)
     - [TokenTimelockFactor.sol](#tokentimelockfactorsol)
     - [PaymentReceiver.sol](#paymentreceiversol)
@@ -18,38 +17,30 @@
       - [::sendRewards](#rewardspoolsendrewards)
       - [Checking Balance of Rewards Pool](#rewardspoolsendrewards)
     - [AlunaToken.sol](#alunatokensol)
-    - [AlunaToken.sol](#alunatokensol)
 - [Testing Project Locally](#testing-the-project-locally)
 - [Deploying the project to Ropsten](#deploying-the-project-to-ropsten)
 - [Platform Links](#platform-links)
 
-# Aluna Smart Contracts
+# Introduction
 
-This repository powers the [Aluna](https://token.aluna.social) smart contract network.
+This repository is the source code for [Aluna](https://aluna.social) Token and the Aluna Rewards Pool.
 
-[AlunaToken](#alunatokensol) implements the ERC-20 standard with added
-functionalty which allows the Token to receive payments on behalf of the
-[Aluna Platform](https://aluna.social).
+You can learn more about the [Aluna Token](https://aluna.social/token) on the
+[token website](https://aluna.social/token), you can also create a free account
+on the [platform website](https://aluna.social).
 
-This extra functionality is implemented on [PaymentProcess](#paymentprocessorsol).
+The Aluna Token was extended with functionality defined on [PaymentProcess](#paymentprocessorsol).
 
 When receiving payments, the [PaymentProcess](#paymentprocessorsol) will automatically
-forward part of the payment to the [RewardsPool](#rewardspoolsol).
-
-The RewardsPool will be responsible for holding all the ALN which will
-be used to reward users for their performance on the leaderboard, among other
-actions that are being implemented on [Aluna Social](https://aluna.social).
+forward part of the payment to the [RewardsPool](#rewardspoolsol) which will be used
+to Reward participants of the community.
 
 ## Contracts
 
-### AlunaCrowdsale.sol
-
-The Aluna crowdsale contract will receive eth and give ALN tokens in exchange, it doesn't have a minimum goal but it has a maximum goal of ETH to be raised, the tokens will be distributed after the closingTime.
-
 ### AlunaToken.sol
   - Implements the ERC-20 standard
-  - Provides additional functionality to process payments using the PaymentProcessor contract
-  - Provices additional groupTransfer function
+  - Provides functionality to process payments using the PaymentProcessor contract
+  - Provices groupTransfer function
 
 #### AlunaToken::groupTransfer(address[] memory recipients, uint256[] memory values)
 
@@ -194,8 +185,7 @@ npm test
 
 ## Deployment
 
-We are using the upgradeability proxy from [openzeppelin](https://docs.openzeppelin.com/sdk/2.5/)
-and the deployment pipeline is using their system as well. You can read more
+We are using the upgradeability proxy from [openzeppelin](https://docs.openzeppelin.com/sdk/2.5/)and the deployment pipeline is using their system as well. You can read more
 about the [publishing process](https://docs.openzeppelin.com/sdk/2.5/publish) and
 [upgrading](https://docs.openzeppelin.com/sdk/2.5/api/upgrades) in `openzeppelin`
 documentation.

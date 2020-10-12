@@ -6,12 +6,9 @@ const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 
 let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
 
-task('deploy:governance', 'deploy Aluna Governance').setAction(async (bre) => {
+task('deployGovernance', 'deploy Aluna Governance').setAction(async () => {
 
   network = await ethers.provider.getNetwork();
-
-  // compile contracts
-  await bre.run("compile");
  
   console.log('Deploying Treasury');
   const govSettings = settings[network.name].gov;

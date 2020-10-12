@@ -1,6 +1,5 @@
 const { TestHelper } = require('@openzeppelin/cli');
 const { Contracts, ZWeb3 } = require('@openzeppelin/upgrades');
-const should = require('chai').should();
 
 ZWeb3.initialize(web3.currentProvider);
 Contracts.setArtifactsDefaults({
@@ -35,6 +34,7 @@ contract('RewardsPool', function ([_, proxyOwner, alunaOrg, receiver1, receiver2
 
   it('send ALN Rewards for multiple receivers', async function () {
     await this.rewardsProxy.methods.sendRewards([receiver1, receiver2], [50, 40]).send({ from: alunaOrg });
+
     (await this.token.methods.balanceOf(receiver1).call())
       .should.be.equal('50');
     (await this.token.methods.balanceOf(receiver2).call())
