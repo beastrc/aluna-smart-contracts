@@ -198,14 +198,15 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         updateBoostBalanceAndSupply(msg.sender, 0);
 
         // in case _getReward function fails, continue
-        (bool success, ) = address(this).call(
-            abi.encodeWithSignature(
-                "_getReward(address)",
-                msg.sender
-            )
-        );
+        //(bool success, ) = address(this).call(
+        //    abi.encodeWithSignature(
+        //       "_getReward(address)",
+        //       msg.sender
+        //   )
+        //);
+        
         // to remove compiler warning
-        success;
+        //success;
 
         // transfer token last, to follow CEI pattern
         stakeToken.safeTransfer(msg.sender, amount);

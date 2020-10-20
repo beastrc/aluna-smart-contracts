@@ -27,13 +27,13 @@ task('deploy:pool', 'Deploy a pool specified on --pool option')
 
   console.log(`Deploying ${poolSettings.stakeTokenName} rewards pool...`);
   console.log("")
-  console.log("stakeTokenName    : ALN")
-  console.log("stakeTokenAdress  : 0x2cC98Ccee440Fb3fcD508761e5B2C29E17D4C737")
-  console.log("cap               : 1000000000000000000000")
-  console.log("rewardTokenAddress: 0x2cC98Ccee440Fb3fcD508761e5B2C29E17D4C737")
+  console.log("stakeTokenName    :", poolSettings.stakeTokenName)
+  console.log("stakeTokenAdress  :", poolSettings.stakeTokenAdress)
+  console.log("cap               :", poolSettings.cap)
+  console.log("rewardTokenAddress:", poolSettings.rewardTokenAddress)
   console.log("start             :", startDate)
   console.log("duration          :", endDate)
-  console.log("rewardAmount      : 100000000000000000000")
+  console.log("rewardAmount      :", poolSettings.rewardAmount)
   console.log("")
   await pressToContinue()
 
