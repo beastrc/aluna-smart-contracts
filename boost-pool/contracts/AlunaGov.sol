@@ -179,4 +179,14 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         // 0 = input token amt, 1 = weth output amt, 2 = stablecoin output amt
         treasury.deposit(stablecoin, amounts[2]);
     }
+
+    function getQuorum(uint256 id) public view returns (uint256){
+        require(proposals[id].totalSupply == 0, "already resolved");
+                       
+        uint256 _quorum = 
+            (proposals[id].totalForVotes.add(proposals[id].totalAgainstVotes))
+            .mul(PERCENTAGE_PRECISION)
+            .div(AdditionalMath.sqrt(totalSupply()));
+        return _quorum;
+    }
 }
