@@ -178,6 +178,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
 
     function getQuorum(uint256 id) public view returns (uint256){
         // sum votes, multiply by precision, divide by square rooted total supply
+        require(proposals[id].proposer != address(0), "non-existent proposal");
         
         uint256 _totalSupply;      
         
