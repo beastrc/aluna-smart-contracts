@@ -66,7 +66,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
     uint256 public proposalCount;
     uint256 public proposalPeriod = 2 days;
     uint256 public lockPeriod = 3 days;
-    uint256 public minimum = 1337e16; // 13.37 BOOST
+    uint256 public minimum = 1337e18; // 1337 ALN
 
     constructor(IERC20 _stakeToken, ITreasury _treasury, SwapRouter _swapRouter)
         public
@@ -142,11 +142,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         // update proposal total supply
         proposals[id].totalSupply = AdditionalMath.sqrt(totalSupply());
 
-        // sum votes, multiply by precision, divide by square rooted total supply
-        uint256 quorum = 
-            (proposals[id].totalForVotes.add(proposals[id].totalAgainstVotes))
-            .mul(PERCENTAGE_PRECISION)
-            .div(proposals[id].totalSupply);
+        uint256 quorum = getQuorum(id);
 
         if ((quorum < MIN_QUORUM_PUNISHMENT) && proposals[id].withdrawAmount > WITHDRAW_THRESHOLD) {
             // user's stake gets slashed, converted to stablecoin and sent to treasury
@@ -181,12 +177,20 @@ contract AlunaGov is LPTokenWrapperWithSlash {
     }
 
     function getQuorum(uint256 id) public view returns (uint256){
-        require(proposals[id].totalSupply == 0, "already resolved");
-                       
+        // sum votes, multiply by precision, divide by square rooted total supply
+        
+        uint256 _totalSupply;      
+        
+        if (proposals[id].totalSupply == 0) {
+            _totalSupply = AdditionalMath.sqrt(totalSupply());
+        } else {
+            _totalSupply = proposals[id].totalSupply;
+        }             
         uint256 _quorum = 
             (proposals[id].totalForVotes.add(proposals[id].totalAgainstVotes))
             .mul(PERCENTAGE_PRECISION)
-            .div(AdditionalMath.sqrt(totalSupply()));
+            .div(_totalSupply);
+
         return _quorum;
     }
 }
