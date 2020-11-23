@@ -84,7 +84,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         string memory _title,
         uint256 _withdrawAmount,
         address _withdrawAddress
-    ) public {
+    ) external {
         require(balanceOf(msg.sender) > minimum, "stake more boost");
         proposals[proposalCount++] = Proposal({
             proposer: msg.sender,
@@ -101,7 +101,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         voteLock[msg.sender] = lockPeriod.add(block.timestamp);
     }
 
-    function voteFor(uint256 id) public {
+    function voteFor(uint256 id) external {
         require(proposals[id].start < block.timestamp , "<start");
         require(proposals[id].end > block.timestamp , ">end");
         require(proposals[id].againstVotes[msg.sender] == 0, "cannot switch votes");
@@ -113,7 +113,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         voteLock[msg.sender] = lockPeriod.add(block.timestamp);
     }
 
-    function voteAgainst(uint256 id) public {
+    function voteAgainst(uint256 id) external {
         require(proposals[id].start < block.timestamp , "<start");
         require(proposals[id].end > block.timestamp , ">end");
         require(proposals[id].forVotes[msg.sender] == 0, "cannot switch votes");
@@ -125,16 +125,16 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         voteLock[msg.sender] = lockPeriod.add(block.timestamp);
     }
 
-    function stake(uint256 amount) public override {
+    function stake(uint256 amount) external override {
         super.stake(amount);
     }
 
-    function withdraw(uint256 amount) public override {
+    function withdraw(uint256 amount) external override {
         require(voteLock[msg.sender] < block.timestamp, "tokens locked");
         super.withdraw(amount);
     }
 
-    function resolveProposal(uint256 id) public {
+    function resolveProposal(uint256 id) external {
         require(proposals[id].proposer != address(0), "non-existent proposal");
         require(proposals[id].end < block.timestamp , "ongoing proposal");
         require(proposals[id].totalSupply == 0, "already resolved");
