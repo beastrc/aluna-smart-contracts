@@ -74,9 +74,9 @@ contract AlunaGov is LPTokenWrapperWithSlash {
     {
         treasury = _treasury;
         stablecoin = treasury.defaultToken();
+        swapRouter = _swapRouter;
         stablecoin.safeApprove(address(treasury), uint256(-1));
         stakeToken.safeApprove(address(_swapRouter), uint256(-1));
-        swapRouter = _swapRouter;
     }
 
     function propose(
