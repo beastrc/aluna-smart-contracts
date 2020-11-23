@@ -1,4 +1,4 @@
-pragma solidity ^0.5.6;
+pragma solidity 0.5.6;
 
 import "@openzeppelin/upgrades/contracts/Initializable.sol";
 import "./PaymentReceiver.sol";
