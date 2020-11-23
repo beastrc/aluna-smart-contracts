@@ -60,7 +60,7 @@ contract PaymentReceiver is ERC20, Ownable {
     * @param _paymentId id of the payment provided by Aluna.
     */
     function processPayment(uint256 _value, bytes32 _paymentId) public {
-        require(_value > 0, "PaymentProcessor: non-positive payment value");
+        require(_value != 0, "PaymentProcessor: non-positive payment value");
         require(_paymentId != 0x0, "PaymentProcessor: invalid payment id");
         require(payments[_paymentId].value == 0, "PaymentProcessor: payment id already used");
         uint256 _rewardsPoolAmount = (_value.mul(rewardsPoolPercentage)).div(100);
