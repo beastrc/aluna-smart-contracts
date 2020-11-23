@@ -79,9 +79,9 @@ contract Treasury is Ownable, ITreasury {
     }
 
     function deposit(IERC20 token, uint256 amount) external override {
-        token.safeTransferFrom(msg.sender, address(this), amount);
         // portion allocated to ecoFund
         ecoFundAmts[address(token)] = amount.mul(fundPercentage).div(PERCENTAGE_PRECISION);
+        token.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     // only default token withdrawals allowed
