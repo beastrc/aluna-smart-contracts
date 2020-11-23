@@ -50,6 +50,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     uint256 public rewardRate;
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;
+    uint256 public constant SECONDS_IN_A_DAY = 86400;
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
     
@@ -176,7 +177,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
 
         // check user cap
         require(
-            balanceOf(msg.sender) <= tokenCapAmount || block.timestamp >= starttime.add(86400),
+            balanceOf(msg.sender) <= tokenCapAmount || block.timestamp >= starttime.add(SECONDS_IN_A_DAY),
             "token cap exceeded"
         );
 
