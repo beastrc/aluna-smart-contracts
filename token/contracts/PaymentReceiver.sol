@@ -93,7 +93,6 @@ contract PaymentReceiver is ERC20, Ownable {
       * @param _rewardsPoolPercentage new percentage share
     */
     function _setRewardsPoolPercentage(uint256 _rewardsPoolPercentage) internal {
-        require(_rewardsPoolPercentage >= 0, "PaymentProcessor: rewards pool percentage is not 0 or above");
         require(_rewardsPoolPercentage <= 100, "PaymentProcessor: rewards pool percentage is not 100 or lower");
         rewardsPoolPercentage = _rewardsPoolPercentage;
     }
