@@ -34,19 +34,8 @@ import "./AdditionalMath.sol";
 contract AlunaGov is LPTokenWrapperWithSlash {
     
     using AdditionalMath for uint256;
-    IERC20 public stablecoin;
 
-    ITreasury public treasury;
-    SwapRouter public swapRouter;
-    
-    // 1% = 100
-    uint256 public constant MIN_QUORUM_PUNISHMENT = 500; // 5%
-    uint256 public constant MIN_QUORUM_THRESHOLD = 3000; // 30%
-    uint256 public constant PERCENTAGE_PRECISION = 10000;
-    uint256 public constant WITHDRAW_THRESHOLD = 1e21; // 1000 yCRV
 
-    mapping(address => uint256) public voteLock; // timestamp that boost stakes are locked after voting
-    
     struct Proposal {
         address proposer;
         address withdrawAddress;
@@ -62,11 +51,22 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         string title;
     }
 
-    mapping (uint256 => Proposal) public proposals;
-    uint256 public proposalCount;
+    // 1% = 100
+    uint256 public constant MIN_QUORUM_PUNISHMENT = 500; // 5%
+    uint256 public constant MIN_QUORUM_THRESHOLD = 3000; // 30%
+    uint256 public constant PERCENTAGE_PRECISION = 10000;
+    uint256 public constant WITHDRAW_THRESHOLD = 1e21; // 1000 yCRV
     uint256 public constant proposalPeriod = 2 days;
     uint256 public constant lockPeriod = 3 days;
     uint256 public constant minimum = 1337e18; // 1337 ALN
+    uint256 public proposalCount;
+
+    IERC20 public stablecoin;
+    ITreasury public treasury;
+    SwapRouter public swapRouter;
+
+    mapping(address => uint256) public voteLock; // timestamp that boost stakes are locked after voting
+    mapping (uint256 => Proposal) public proposals;
 
     constructor(IERC20 _stakeToken, ITreasury _treasury, SwapRouter _swapRouter)
         public
