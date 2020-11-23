@@ -168,7 +168,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
     function stake(uint256 amount) public updateReward(msg.sender) override checkStart  {
-        require(amount > 0, "Cannot stake 0");
+        require(amount != 0, "Cannot stake 0");
         super.stake(amount);
 
         // check user cap
@@ -188,7 +188,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     }
 
     function withdraw(uint256 amount) public updateReward(msg.sender) override checkStart {
-        require(amount > 0, "Cannot withdraw 0");
+        require(amount != 0, "Cannot withdraw 0");
         super.withdraw(amount);
         
         // reset boosts :(
@@ -318,7 +318,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
 
     function _getReward(address user) internal {
         uint256 reward = earned(user);
-        if (reward > 0) {
+        if (reward != 0) {
             rewards[user] = 0;
             rewardToken.safeTransfer(user, reward);
             emit RewardPaid(user, reward);
