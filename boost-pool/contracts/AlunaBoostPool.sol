@@ -320,8 +320,8 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         uint256 reward = earned(user);
         if (reward != 0) {
             rewards[user] = 0;
-            rewardToken.safeTransfer(user, reward);
             emit RewardPaid(user, reward);
+            rewardToken.safeTransfer(user, reward);
         }
     }   
 }
