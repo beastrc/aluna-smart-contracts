@@ -46,7 +46,7 @@ contract AlunaToken is PaymentReceiver, Initializable {
     function groupTransfer(address[] memory recipients, uint256[] memory values) external onlyOwner {
         require(recipients.length == values.length, "AlunaToken: Invalid length of recipients and values");
         for (uint i = 0; i < recipients.length; i++) {
-            _transfer(msg.sender, recipients[i], values[i]);
+            _transfer(_msgSender(), recipients[i], values[i]);
         }
     }
 
