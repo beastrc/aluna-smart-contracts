@@ -51,13 +51,13 @@ contract LPTokenWrapper {
         return _balances[account];
     }
 
-    function stake(uint256 amount) public virtual {
+    function stake(uint256 amount) external virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
         // safeTransferFrom shifted to last line of overridden method
     }
 
-    function withdraw(uint256 amount) public virtual {
+    function withdraw(uint256 amount) external virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
         // safeTransfer shifted to last line of overridden method
