@@ -32,9 +32,10 @@ contract LPTokenWrapperWithSlash {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
+    uint256 private _totalSupply;
+
     IERC20 public stakeToken;
 
-    uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
 
     constructor(IERC20 _stakeToken) public {
