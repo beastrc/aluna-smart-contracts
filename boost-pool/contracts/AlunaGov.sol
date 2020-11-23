@@ -43,7 +43,7 @@ contract AlunaGov is LPTokenWrapperWithSlash {
     uint256 public constant MIN_QUORUM_PUNISHMENT = 500; // 5%
     uint256 public constant MIN_QUORUM_THRESHOLD = 3000; // 30%
     uint256 public constant PERCENTAGE_PRECISION = 10000;
-    uint256 public WITHDRAW_THRESHOLD = 1e21; // 1000 yCRV
+    uint256 public constant WITHDRAW_THRESHOLD = 1e21; // 1000 yCRV
 
     mapping(address => uint256) public voteLock; // timestamp that boost stakes are locked after voting
     
@@ -64,9 +64,9 @@ contract AlunaGov is LPTokenWrapperWithSlash {
 
     mapping (uint256 => Proposal) public proposals;
     uint256 public proposalCount;
-    uint256 public proposalPeriod = 2 days;
-    uint256 public lockPeriod = 3 days;
-    uint256 public minimum = 1337e18; // 1337 ALN
+    uint256 public constant proposalPeriod = 2 days;
+    uint256 public constant lockPeriod = 3 days;
+    uint256 public constant minimum = 1337e18; // 1337 ALN
 
     constructor(IERC20 _stakeToken, ITreasury _treasury, SwapRouter _swapRouter)
         public
