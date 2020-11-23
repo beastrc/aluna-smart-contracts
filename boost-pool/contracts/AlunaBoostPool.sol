@@ -137,14 +137,16 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     {
         if (boostedTotalSupply == 0) return (0,0);
 
-        // 5% increase for each previously user-purchased booster
+        // each previously user-purchased booster will increase price in 5%,
+        // that is, 1 booster means 5% increase, 2 boosters mean 10% and so on
         uint256 boostersBought = numBoostersBought[user];
         boosterPrice = globalBoosterPrice.mul(boostersBought.mul(5).add(100)).div(100);
 
         // increment boostersBought by 1
         boostersBought = boostersBought.add(1);
 
-        // if no. of boosters exceed threshold, increase booster price by boostScaleFactor;
+        // if no. of boosters exceed threshold, increase booster price by boostScaleFactor
+        // for each exceeded booster
         if (boostersBought >= boostThreshold) {
             boosterPrice = boosterPrice
                 .mul((boostersBought.sub(boostThreshold)).mul(boostScaleFactor).add(100))
@@ -155,6 +157,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         boosterPrice = AdditionalMath.pow(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
 
         // adjust price based on expected increase in boost supply
+        // each booster will increase balance in an order of 5%
         // boostersBought has been incremented by 1 already
         newBoostBalance = balanceOf(user)
             .mul(boostersBought.mul(5).add(100))
@@ -290,7 +293,8 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         // when applying boosts,
         // newBoostBalance has already been calculated in getBoosterPrice()
         if (newBoostBalance == 0) {
-            // each booster adds 5% to current stake amount
+            // each booster adds 5% to current stake amount, that is 1 booster means 5%,
+            // two boosters mean 10% and so on
             newBoostBalance = balanceOf(user).mul(numBoostersBought[user].mul(5).add(100)).div(100);
         }
 
