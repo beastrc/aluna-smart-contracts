@@ -67,9 +67,9 @@ contract PaymentReceiver is ERC20, Ownable {
         uint256 _remainingAmount = _value.sub(_rewardsPoolAmount);
         _transfer(msg.sender, owner(), _remainingAmount);
         _approve(msg.sender, rewardsPoolAddress, _rewardsPoolAmount);
+        payments[_paymentId] = Payment(_value, _rewardsPoolAmount, false);
         RewardsPool(rewardsPoolAddress).deposit(msg.sender, _rewardsPoolAmount);
         emit PaymentProcessed(msg.sender, _value, _paymentId);
-        payments[_paymentId] = Payment(_value, _rewardsPoolAmount, false);
     }
 
     /**
