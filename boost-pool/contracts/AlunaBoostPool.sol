@@ -46,8 +46,8 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     uint256 public tokenCapAmount;
     uint256 public starttime;
     uint256 public duration;
-    uint256 public periodFinish = 0;
-    uint256 public rewardRate = 0;
+    uint256 public periodFinish;
+    uint256 public rewardRate;
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;
