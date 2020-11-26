@@ -41,7 +41,7 @@ contract RewardsPool is Initializable, Ownable {
      * @param value Amount of tokens
     */
     function deposit(address from, uint256 value) external {
-        tokenALN.transferFrom(from, address(this), value);
+        require(tokenALN.transferFrom(from, address(this), value), "Deposit failed");
         emit DepositComplete(from, value);
     }
 
@@ -53,7 +53,7 @@ contract RewardsPool is Initializable, Ownable {
     function sendRewards(address[] calldata receivers, uint256[] calldata values) external onlyOwner {
         require(receivers.length == values.length, "RewardsPool: Invalid length of receivers and values");
         for (uint i = 0; i < receivers.length; i++) {
-            tokenALN.transfer(receivers[i], values[i]);
+            require(tokenALN.transfer(receivers[i], values[i]), "Reward failed");
             emit RewardComplete(receivers[i], values[i]);
         }
     }
