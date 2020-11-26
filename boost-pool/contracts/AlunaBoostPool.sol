@@ -155,7 +155,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         }
 
         // 2.5% decrease for every 2 hour interval since last global boost purchase
-        boosterPrice = AdditionalMath.pow(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
+        boosterPrice = calculateBoostDevaluation(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
 
         // adjust price based on expected increase in boost supply
         // each booster will increase balance in an order of 5%
@@ -328,5 +328,26 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
             emit RewardPaid(user, reward);
             rewardToken.safeTransfer(user, reward);
         }
-    }   
+    }
+
+    /// Imported from: https://forum.openzeppelin.com/t/does-safemath-library-need-a-safe-power-function/871/7
+   /// Modified so that it takes in 3 arguments for base
+   /// @return a * (b / c)^exponent 
+   function calculateBoostDevaluation(uint256 a, uint256 b, uint256 c, uint256 exponent) internal pure returns (uint256) {
+        if (exponent == 0) {
+            return a;
+        }
+        else if (exponent == 1) {
+            return a.mul(b).div(c);
+        }
+        else if (a == 0 && exponent != 0) {
+            return 0;
+        }
+        else {
+            uint256 z = a.mul(b).div(c);
+            for (uint256 i = 1; i < exponent; i++)
+                z = z.mul(b).div(c);
+            return z;
+        }
+    }
 }
