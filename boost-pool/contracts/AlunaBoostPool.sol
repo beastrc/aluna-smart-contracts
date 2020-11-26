@@ -331,7 +331,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
 
     /// Imported from: https://forum.openzeppelin.com/t/does-safemath-library-need-a-safe-power-function/871/7
    /// Modified so that it takes in 3 arguments for base
-   /// @return a * (b / c)^exponent 
+   /// @return the eventually newly calculated boost price
    function calculateBoostDevaluation(uint256 a, uint256 b, uint256 c, uint256 exponent) internal pure returns (uint256) {
         if (exponent == 0) {
             return a;
