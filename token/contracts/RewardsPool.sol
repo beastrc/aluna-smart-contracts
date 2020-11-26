@@ -50,7 +50,7 @@ contract RewardsPool is Initializable, Ownable {
      * @param receivers The addresses of the rewards receivers
      * @param values The value in tokens to be sent to each receiver
     */
-    function sendRewards(address[] memory receivers, uint256[] memory values) external onlyOwner {
+    function sendRewards(address[] calldata receivers, uint256[] calldata values) external onlyOwner {
         require(receivers.length == values.length, "RewardsPool: Invalid length of receivers and values");
         for (uint i = 0; i < receivers.length; i++) {
             tokenALN.transfer(receivers[i], values[i]);
