@@ -99,13 +99,14 @@ contract Treasury is Ownable, ITreasury {
         if (srcToken.allowance(address(this), address(swapRouter)) <= amount) {
             srcToken.safeApprove(address(swapRouter), uint256(-1));
         }
-        swapRouter.swapExactTokensForTokens(
+        uint[] memory swappedAmounts = swapRouter.swapExactTokensForTokens(
             amount,
             0,
             routeDetails,
             address(this),
             block.timestamp + 100
         );
+        require(swappedAmounts.length != 0, "Swap failed");
     }
 
     function withdrawEcoFund(IERC20 token, uint256 amount) external {
