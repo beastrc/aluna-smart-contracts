@@ -1,5 +1,5 @@
 
-pragma solidity 0.6.1;
+pragma solidity 0.6.2;
 
 /*
 #    Copyright (C) 2017  alianse777

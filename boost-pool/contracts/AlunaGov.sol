@@ -21,15 +21,13 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-pragma solidity 0.6.1;
+pragma solidity 0.6.2;
 
 
 import "./interfaces/ITreasury.sol";
 import "./interfaces/ISwapRouter.sol";
 import "./LPTokenWrapperWithSlash.sol";
 import "./AdditionalMath.sol";
-
-
 
 contract AlunaGov is LPTokenWrapperWithSlash {
     
@@ -80,8 +78,8 @@ contract AlunaGov is LPTokenWrapperWithSlash {
     }
 
     function propose(
-        string memory _url,
-        string memory _title,
+        string calldata _url,
+        string calldata _title,
         uint256 _withdrawAmount,
         address _withdrawAddress
     ) external {
@@ -125,11 +123,11 @@ contract AlunaGov is LPTokenWrapperWithSlash {
         voteLock[msg.sender] = lockPeriod.add(block.timestamp);
     }
 
-    function stake(uint256 amount) external override {
+    function stake(uint256 amount) public override {
         super.stake(amount);
     }
 
-    function withdraw(uint256 amount) external override {
+    function withdraw(uint256 amount) public override {
         require(voteLock[msg.sender] < block.timestamp, "tokens locked");
         super.withdraw(amount);
     }

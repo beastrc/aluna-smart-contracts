@@ -21,7 +21,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-pragma solidity 0.6.1;
+pragma solidity 0.6.2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interfaces/IERC20Burnable.sol";
@@ -29,12 +29,11 @@ import "./interfaces/ITreasury.sol";
 import "./interfaces/ISwapRouter.sol";
 import "./LPTokenWrapper.sol";
 import "./AdditionalMath.sol";
-
+import "@openzeppelin/contracts/math/Math.sol";
 
 contract AlunaBoostPool is LPTokenWrapper, Ownable {
     
     using AdditionalMath for uint256;
-    
     
     IERC20 public rewardToken;
     IERC20 public boostToken;
@@ -171,7 +170,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
-    function stake(uint256 amount) external updateReward(msg.sender) override checkStart  {
+    function stake(uint256 amount) public updateReward(msg.sender) override checkStart  {
         require(amount != 0, "Cannot stake 0");
         super.stake(amount);
 
@@ -191,7 +190,7 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         stakeToken.safeTransferFrom(msg.sender, address(this), amount);
     }
 
-    function withdraw(uint256 amount) external updateReward(msg.sender) override checkStart {
+    function withdraw(uint256 amount) public updateReward(msg.sender) override checkStart {
         require(amount != 0, "Cannot withdraw 0");
         super.withdraw(amount);
         

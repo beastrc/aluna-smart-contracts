@@ -21,7 +21,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-pragma solidity 0.6.1;
+pragma solidity 0.6.2;
 
 
 import "@openzeppelin/contracts/math/SafeMath.sol";
@@ -51,13 +51,13 @@ contract LPTokenWrapper {
         return _balances[account];
     }
 
-    function stake(uint256 amount) external virtual {
+    function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
         // safeTransferFrom shifted to last line of overridden method
     }
 
-    function withdraw(uint256 amount) external virtual {
+    function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
         // safeTransfer shifted to last line of overridden method

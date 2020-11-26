@@ -21,7 +21,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-pragma solidity ^0.6.1;
+pragma solidity ^0.6.2;
 
 interface IERC20Burnable {
     function totalSupply() external view returns (uint256);
