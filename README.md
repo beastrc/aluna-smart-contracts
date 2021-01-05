@@ -16,8 +16,14 @@ Source code for [Openzeppelin](https://github.com/OpenZeppelin/openzeppelin-cont
 
 Source code for Aluna Boost Pools, forked from [Boosted-Finance](https://github.com/Boosted-Finance/smart-contracts)
 
+## 2020 Audit
+
+- [Audit](./AUDIT_CERTIK.pdf) was conduted by [https://certik.io/](https://certik.io/), further
+fixes and reviews were done together with [onepercent.io](https://onepercent.io/) 
+and issues also discussed with SC programmers from [Boosted Finance](https://github.com/Boosted-Finance/smart-contracts)
+
 ## Credits
 
  - Aluna Token was developed by by [levelk.io](https://www.levelk.io/)
 
- - Aluna Boost Pool and Token Vesting reviewed and tested in collaboration with [onepercent.io](https://onepercent.io/)
+ - Aluna Boost Pool and Token Vesting was forked from [Boosted Finance](https://github.com/Boosted-Finance/smart-contracts) reviewed, tested and amended in collaboration with [onepercent.io](https://onepercent.io/)
