@@ -193,7 +193,7 @@ about the [publishing process](https://docs.openzeppelin.com/sdk/2.5/publish) an
 [upgrading](https://docs.openzeppelin.com/sdk/2.5/api/upgrades) in `openzeppelin`
 documentation.
 
-You need to create a file called `kesys.json` as it's the file is used by [truffler.js](./truffle.js)
+You need to create a file called `keys.json` as it's the file is used by [truffler.js](./truffle.js)
 
 ```json
 {
