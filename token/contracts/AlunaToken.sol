@@ -27,7 +27,7 @@ contract AlunaToken is PaymentReceiver, Initializable {
         uint256 _rewardsPoolPercentage,
         address _owner
     ) public initializer {
-        name = "AlunaToken";
+        name = "Aluna";
         symbol = "ALN";
         decimals = 18;
         _mint(_owner, _totalSupply);

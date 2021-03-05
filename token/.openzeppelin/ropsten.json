@@ -1,7 +1,7 @@
 {
   "contracts": {
     "AlunaToken": {
-      "address": "0x21f1598b786fbf6b81E85f57E56faf83F78Fb59E",
+      "address": "0x4cB8745125AC4E16c83B22Cc66836DDc9443090a",
       "constructorCode": "608060405261001261006360201b60201c565b600380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b611aab806100766000396000f3fe",
       "bodyBytecodeHash": "1172037a9c1354639ed41d8f7b36fcd35beee54c7573d655e63c1324c2189f2f",
       "localBytecodeHash": "848fb0e4700fb075b2bb83c5b089a79bfa143b5cb442ac7b7162979be2440740",
@@ -195,26 +195,15 @@
           "token/ERC20/IERC20.sol",
           "math/SafeMath.sol"
         ],
-        "uninitializedBaseContracts": [],
-        "storageUncheckedVars": [
-          {
-            "contract": "PaymentReceiver",
-            "path": "contracts/PaymentReceiver.sol",
-            "label": "payments",
-            "astId": 122,
-            "type": "t_mapping<t_struct<PaymentReceiver.Payment>>",
-            "src": "314:43:1"
-          }
-        ],
-        "storageDiff": []
+        "uninitializedBaseContracts": []
       }
     },
     "RewardsPool": {
-      "address": "0xCD9D49996b77D2BEce89B7A5f2972a0d8EdAdA67",
-      "constructorCode": "608060405261001261006360201b60201c565b603380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b6108ac806100766000396000f3fe",
-      "bodyBytecodeHash": "d067dfc2aa93f7ad1909d6055842615585084b01fa35ccb2258ebea8893d3294",
-      "localBytecodeHash": "825d4c6247d3ad5814fa1b5d85159aefee4703ee6be6c9e87052fa4dfda5b88a",
-      "deployedBytecodeHash": "825d4c6247d3ad5814fa1b5d85159aefee4703ee6be6c9e87052fa4dfda5b88a",
+      "address": "0x7e09D8Fc6b9362f321b4cf8ECBa502Cd67D8346E",
+      "constructorCode": "608060405261001261006360201b60201c565b603380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b6108f5806100766000396000f3fe",
+      "bodyBytecodeHash": "44095ca3a2e8aeec55cb1fc7ad46364320fc1ac19728f5de888d0ba0fad0140a",
+      "localBytecodeHash": "bf2654eabb4d7a9f11c136c397b58cefca25c7e496476aae80d14b43aefba2bc",
+      "deployedBytecodeHash": "bf2654eabb4d7a9f11c136c397b58cefca25c7e496476aae80d14b43aefba2bc",
       "types": {
         "t_bool": {
           "id": "t_bool",
@@ -244,69 +233,96 @@
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initialized",
-          "astId": 2707,
+          "astId": 1299,
           "type": "t_bool",
-          "src": "757:24:21"
+          "src": "757:24:8"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initializing",
-          "astId": 2709,
+          "astId": 1301,
           "type": "t_bool",
-          "src": "876:25:21"
+          "src": "876:25:8"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "______gap",
-          "astId": 2765,
+          "astId": 1363,
           "type": "t_array:50<t_uint256>",
-          "src": "1951:29:21"
+          "src": "1982:29:8"
         },
         {
           "contract": "Ownable",
           "path": "@openzeppelin/contracts/ownership/Ownable.sol",
           "label": "_owner",
-          "astId": 1623,
+          "astId": 714,
           "type": "t_address",
-          "src": "449:22:13"
+          "src": "449:22:5"
         },
         {
           "contract": "RewardsPool",
           "path": "contracts/RewardsPool.sol",
           "label": "tokenALN",
-          "astId": 456,
+          "astId": 379,
           "type": "t_address",
-          "src": "339:22:3"
+          "src": "338:22:2"
         }
       ],
       "warnings": {
-        "hasConstructor": false,
+        "hasConstructor": true,
         "hasSelfDestruct": false,
         "hasDelegateCall": false,
         "hasInitialValuesInDeclarations": false,
+        "importsVanillaContracts": [
+          "ownership/Ownable.sol",
+          "GSN/Context.sol",
+          "token/ERC20/IERC20.sol",
+          "math/SafeMath.sol"
+        ],
         "uninitializedBaseContracts": []
       }
     }
   },
   "solidityLibs": {},
   "proxies": {
-    "aluna-smart-contracts/AlunaToken": [
+    "aluna-smart-contracts/RewardsPool": [
       {
-        "address": "0x8185bc4757572da2a610f887561c32298f1a5748",
+        "address": "0x4725A2FB3Df3736b157492171B709e783FB4d666",
         "version": "1.0.0",
-        "implementation": "0x37a9f19B26e976b878255f902DCDfC134919C7b8",
-        "admin": "0xf5FA334fedC3493Ad00e364b3553F9c9224754c9",
+        "implementation": "0x7e09D8Fc6b9362f321b4cf8ECBa502Cd67D8346E",
+        "admin": "0x44702FFB31d9D38864f2B02C7C5890a798F28134",
         "kind": "Upgradeable"
       }
     ],
-    "aluna-smart-contracts/RewardsPool": [
+    "aluna-smart-contracts/AlunaToken": [
       {
-        "address": "0x68A1640BF997926B900e6376d22E607b28f7484e",
+        "address": "0xa78995053920AAD8785fC140bAdB6bF39214327c",
         "version": "1.0.0",
-        "implementation": "0xCD9D49996b77D2BEce89B7A5f2972a0d8EdAdA67",
-        "admin": "0xf5FA334fedC3493Ad00e364b3553F9c9224754c9",
+        "implementation": "0x4cB8745125AC4E16c83B22Cc66836DDc9443090a",
+        "admin": "0x44702FFB31d9D38864f2B02C7C5890a798F28134",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x14A4f1CE894Dabb109f51b5Cf37B29E31ffD4b18",
+        "version": "1.0.0",
+        "implementation": "0x4cB8745125AC4E16c83B22Cc66836DDc9443090a",
+        "admin": "0x44702FFB31d9D38864f2B02C7C5890a798F28134",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x97764b42C1b79aD2bFAE16008a298a65EeE5b119",
+        "version": "1.0.0",
+        "implementation": "0x4cB8745125AC4E16c83B22Cc66836DDc9443090a",
+        "admin": "0x44702FFB31d9D38864f2B02C7C5890a798F28134",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x75F0b43275B2DB2bF7d34E7D31b636708C25eE57",
+        "version": "1.0.0",
+        "implementation": "0x4cB8745125AC4E16c83B22Cc66836DDc9443090a",
+        "admin": "0x44702FFB31d9D38864f2B02C7C5890a798F28134",
         "kind": "Upgradeable"
       }
     ]
@@ -314,6 +330,6 @@
   "manifestVersion": "2.2",
   "version": "1.0.0",
   "proxyAdmin": {
-    "address": "0x7D4Dee3c8336cc7FEc3adb615F762d61Ca32D342"
+    "address": "0x44702FFB31d9D38864f2B02C7C5890a798F28134"
   }
 }
