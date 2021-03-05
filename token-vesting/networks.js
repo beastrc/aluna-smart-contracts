@@ -23,7 +23,7 @@ module.exports = {
       },
       network_id: 3,
       gas: 8000000,
-      gasPrice: 1 * ONE_GWEI
+      gasPrice: 43.81359 * ONE_GWEI
     },
     kovan: {
       provider: function() {
@@ -32,6 +32,14 @@ module.exports = {
       network_id: 42,
       gas: 12400000,
       gasPrice: 1 * ONE_GWEI
-    }
+    },
+    mainnet: {
+      provider: function() {
+          return new HDWalletProvider(mnemonic(), 'https://mainnet.infura.io/v3/cab9930f8ed349d0b3a3b9bba5a00bd5')
+      },
+      network_id: 1,
+      gas: 8000000,
+      gasPrice: 20 * ONE_GWEI
+    },
   },
 };
