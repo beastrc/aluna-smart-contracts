@@ -6,7 +6,6 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
   "devDependencies": {
     "@openzeppelin/contracts-ethereum-package": "^3.0.0",
     "@openzeppelin/test-environment": "^0.1.5",
@@ -20,8 +19,8 @@
     "mocha": "^8.0.1",
     "nodemon": "^2.0.4",
     "solhint": "^3.2.0",
-    "soljitsu": "^1.0.0",
-    "solidity-coverage": "^0.7.10"
+    "solidity-coverage": "^0.7.10",
+    "soljitsu": "^1.0.0"
   },
   "scripts": {
     "test": "mocha --exit --recursive",

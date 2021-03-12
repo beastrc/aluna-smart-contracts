@@ -1,11 +1,11 @@
 {
   "contracts": {
     "AlunaTokenVesting": {
-      "address": "0x070b78bE24f5eBbaba098E30480b0a1422334ceb",
-      "constructorCode": "608060405234801561001057600080fd5b50612011806100206000396000f3fe",
-      "bodyBytecodeHash": "eb7fb9255234358dcb634e70d811d1b288dbc84a3416b891c0ee6b35505c4d16",
-      "localBytecodeHash": "24a140b205c4f0778c228c61dd31831d64f3ccb4458407f303b63a775e3d7a85",
-      "deployedBytecodeHash": "24a140b205c4f0778c228c61dd31831d64f3ccb4458407f303b63a775e3d7a85",
+      "address": "0xBb1B0cf30c2d52bb3a0dCe3d48391FF351D68C87",
+      "constructorCode": "608060405234801561001057600080fd5b506114ad806100206000396000f3fe",
+      "bodyBytecodeHash": "baeb65df9577d9432cc2f8b6076670ce4cc771957f7795558f02be7107b01989",
+      "localBytecodeHash": "db0824edfcaf987a4c76bf0c547b1252ffe6d6a8749daf6c1de8c5ff9f49b051",
+      "deployedBytecodeHash": "db0824edfcaf987a4c76bf0c547b1252ffe6d6a8749daf6c1de8c5ff9f49b051",
       "types": {
         "t_bool": {
           "id": "t_bool",
@@ -106,68 +106,68 @@
           "src": "2434:25:2"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_beneficiary",
-          "astId": 278,
+          "astId": 1378,
           "type": "t_address",
-          "src": "1137:28:3"
+          "src": "1323:28:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_cliff",
-          "astId": 280,
+          "astId": 1380,
           "type": "t_uint256",
-          "src": "1267:22:3"
+          "src": "1453:22:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_start",
-          "astId": 282,
+          "astId": 1382,
           "type": "t_uint256",
-          "src": "1295:22:3"
+          "src": "1481:22:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_duration",
-          "astId": 284,
+          "astId": 1384,
           "type": "t_uint256",
-          "src": "1323:25:3"
+          "src": "1509:25:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_revocable",
-          "astId": 286,
+          "astId": 1386,
           "type": "t_bool",
-          "src": "1355:23:3"
+          "src": "1541:23:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_released",
-          "astId": 290,
+          "astId": 1390,
           "type": "t_mapping<t_uint256>",
-          "src": "1385:46:3"
+          "src": "1571:46:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "_revoked",
-          "astId": 294,
+          "astId": 1394,
           "type": "t_mapping<t_bool>",
-          "src": "1437:42:3"
+          "src": "1623:42:8"
         },
         {
-          "contract": "TokenVestingUpgradeSafe",
-          "path": "@openzeppelin/contracts-ethereum-package/contracts/drafts/TokenVesting.sol",
+          "contract": "AlunaTokenVesting",
+          "path": "contracts/AlunaTokenVesting.sol",
           "label": "__gap",
-          "astId": 689,
+          "astId": 1839,
           "type": "t_array:44<t_uint256>",
-          "src": "6526:25:3"
+          "src": "7305:25:8"
         }
       ],
       "warnings": {
@@ -183,10 +183,31 @@
   "proxies": {
     "AlunaTokenVesting/AlunaTokenVesting": [
       {
-        "address": "0x1E80805Dfa67ddbB0D7A7281C3216276073E1D69",
+        "address": "0x1F35aFaE464C471B3BEDC6b88B824E2be70547aB",
         "version": "1.0.0",
-        "implementation": "0x070b78bE24f5eBbaba098E30480b0a1422334ceb",
-        "admin": "0x1121099207130E630D4010D804424E2ed2F0858D",
+        "implementation": "0xBb1B0cf30c2d52bb3a0dCe3d48391FF351D68C87",
+        "admin": "0x4875158ba3c31a34296435A617BaF26453561874",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x95067994252e3933781A4A551DD8F0453f530f03",
+        "version": "1.0.0",
+        "implementation": "0xBb1B0cf30c2d52bb3a0dCe3d48391FF351D68C87",
+        "admin": "0x4875158ba3c31a34296435A617BaF26453561874",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0xDbF241583Db65625BBEA5AF08B80A7D98Be16Fb1",
+        "version": "1.0.0",
+        "implementation": "0xBb1B0cf30c2d52bb3a0dCe3d48391FF351D68C87",
+        "admin": "0x4875158ba3c31a34296435A617BaF26453561874",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x91c56bb91ed8FD294324Bf4c56419Fe035e1DFfE",
+        "version": "1.0.0",
+        "implementation": "0xBb1B0cf30c2d52bb3a0dCe3d48391FF351D68C87",
+        "admin": "0x4875158ba3c31a34296435A617BaF26453561874",
         "kind": "Upgradeable"
       }
     ]
@@ -194,6 +215,6 @@
   "manifestVersion": "2.2",
   "version": "1.0.0",
   "proxyAdmin": {
-    "address": "0x1121099207130E630D4010D804424E2ed2F0858D"
+    "address": "0x4875158ba3c31a34296435A617BaF26453561874"
   }
 }
