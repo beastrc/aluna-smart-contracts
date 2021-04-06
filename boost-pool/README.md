@@ -73,4 +73,4 @@ $ npx buidler deploy:pool --pool {your pool name} --network {kovan or mainnet}
 ```
 
 -kovan tests
-ALN_ETH Pool 0x0B1b5eD98935a7bd304385e5E90f84501FD60082
+ALN_ETH Pool - 0x0B1b5eD98935a7bd304385e5E90f84501FD60082
