@@ -4,11 +4,20 @@ const pressToContinue = require('./pressToContinue');
 const settings = require("./_settings.js");
 const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 
-let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
+let gasPrice = new BN.from(185).mul(new BN.from(10).pow(new BN.from(9)));
 
 task('deploy:governance', 'deploy Aluna Governance').setAction(async (taskArgs, bre) => {
 
   network = await ethers.provider.getNetwork();
+
+  console.log("network:", network.name)
+
+  if(!settings[network.name]){
+    console.log(`settings for ${network.name} not found`)
+    return
+  }
+
+  await pressToContinue();
 
   // compile contracts
   await bre.run("compile");

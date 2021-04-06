@@ -6,7 +6,7 @@ const pressToContinue = require('./pressToContinue');
 const settings = require("./_settings.js");
 const uniswapRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 
-let gasPrice = new BN.from(20).mul(new BN.from(10).pow(new BN.from(9)));
+let gasPrice = new BN.from(185).mul(new BN.from(10).pow(new BN.from(9)));
 
 
 task('deploy:pool', 'Deploy a pool specified on --pool option')
@@ -31,8 +31,8 @@ task('deploy:pool', 'Deploy a pool specified on --pool option')
   console.log("stakeTokenAdress  :", poolSettings.stakeTokenAdress)
   console.log("cap               :", poolSettings.cap)
   console.log("rewardTokenAddress:", poolSettings.rewardTokenAddress)
-  console.log("start             :", startDate)
-  console.log("duration          :", endDate)
+  console.log("pool starts       :", startDate)
+  console.log("pool ends         :", endDate)
   console.log("rewardAmount      :", poolSettings.rewardAmount)
   console.log("")
   await pressToContinue()
