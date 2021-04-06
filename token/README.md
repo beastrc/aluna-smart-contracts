@@ -204,7 +204,7 @@ You need to create a file called `keys.json` as it's the file is used by [truffl
 
 Example command for AlunaToken and RewardsPool contract creation from upgradeable instances:
 ```
-npx openzeppelin create AlunaToken --network ropsten --init initialize --args 25000000000000000000000000,0x0000000000000000000000000000000000000000,10,0x00bBe1f8F6F8032609F151B59ea20a686fbf44b5 --from 0xe3c7725F036B79781Cf8c5246ea7c1fa4AfC9827
+npx openzeppelin create AlunaToken --network ropsten --init initialize --args 100000000000000000000000000,0xA8950F8C30595bE20A279b4F2ca54d140128AB1D,0,0xA8950F8C30595bE20A279b4F2ca54d140128AB1D --from 0xA8950F8C30595bE20A279b4F2ca54d140128AB1D --force
 
 npx openzeppelin create RewardsPool --network ropsten --init initialize --args 0x00bBe1f8F6F8032609F151B59ea20a686fbf44b5,0xA405B28c3B70F364a23d573CdF5032871dFcF1F7 --from 0xe3c7725F036B79781Cf8c5246ea7c1fa4AfC9827    
 ```
