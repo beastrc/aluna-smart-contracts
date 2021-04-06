@@ -296,8 +296,8 @@
       {
         "address": "0x8185bc4757572da2a610f887561c32298f1a5748",
         "version": "1.0.0",
-        "implementation": "0x37a9f19B26e976b878255f902DCDfC134919C7b8",
-        "admin": "0xf5FA334fedC3493Ad00e364b3553F9c9224754c9",
+        "implementation": "0x21f1598b786fbf6b81E85f57E56faf83F78Fb59E",
+        "admin": "0x7D4Dee3c8336cc7FEc3adb615F762d61Ca32D342",
         "kind": "Upgradeable"
       }
     ],
