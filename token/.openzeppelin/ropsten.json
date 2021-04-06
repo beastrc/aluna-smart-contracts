@@ -1,7 +1,231 @@
 {
-  "contracts": {},
+  "contracts": {
+    "AlunaToken": {
+      "address": "0xC1be9DEa4dDDA82217331495fa553D0E991E2B43",
+      "constructorCode": "608060405261001261006360201b60201c565b600380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b611d03806100766000396000f3fe",
+      "bodyBytecodeHash": "34a55719d618e54fef4d6ca5f582743fcb4b7d8f2d6a769bd1440b588d30807f",
+      "localBytecodeHash": "5dbc45a273794a17b703dfcf01e714cd364f4eb5537f25396f8b05684160fe4c",
+      "deployedBytecodeHash": "5dbc45a273794a17b703dfcf01e714cd364f4eb5537f25396f8b05684160fe4c",
+      "types": {
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_struct<PaymentReceiver.Payment>": {
+          "id": "t_struct<PaymentReceiver.Payment>",
+          "kind": "struct",
+          "label": "PaymentReceiver.Payment",
+          "members": [
+            {
+              "label": "value",
+              "astId": 113,
+              "type": "t_uint256",
+              "src": "364:13:1"
+            },
+            {
+              "label": "poolFee",
+              "astId": 115,
+              "type": "t_uint256",
+              "src": "387:15:1"
+            },
+            {
+              "label": "refunded",
+              "astId": 117,
+              "type": "t_bool",
+              "src": "412:13:1"
+            }
+          ]
+        },
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_mapping<t_struct<PaymentReceiver.Payment>>": {
+          "id": "t_mapping<t_struct<PaymentReceiver.Payment>>",
+          "valueType": "t_struct<PaymentReceiver.Payment>",
+          "label": "mapping(key => PaymentReceiver.Payment)",
+          "kind": "mapping"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_string": {
+          "id": "t_string",
+          "kind": "elementary",
+          "label": "string"
+        },
+        "t_uint8": {
+          "id": "t_uint8",
+          "kind": "elementary",
+          "label": "uint8"
+        }
+      },
+      "storage": [
+        {
+          "contract": "ERC20",
+          "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+          "label": "_balances",
+          "astId": 837,
+          "type": "t_mapping<t_uint256>",
+          "src": "1341:46:6"
+        },
+        {
+          "contract": "ERC20",
+          "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+          "label": "_allowances",
+          "astId": 843,
+          "type": "t_mapping<t_uint256>",
+          "src": "1394:69:6"
+        },
+        {
+          "contract": "ERC20",
+          "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+          "label": "_totalSupply",
+          "astId": 845,
+          "type": "t_uint256",
+          "src": "1470:28:6"
+        },
+        {
+          "contract": "Ownable",
+          "path": "@openzeppelin/contracts/ownership/Ownable.sol",
+          "label": "_owner",
+          "astId": 714,
+          "type": "t_address",
+          "src": "449:22:5"
+        },
+        {
+          "contract": "PaymentReceiver",
+          "path": "contracts/PaymentReceiver.sol",
+          "label": "payments",
+          "astId": 122,
+          "type": "t_mapping<t_struct<PaymentReceiver.Payment>>",
+          "src": "438:43:1"
+        },
+        {
+          "contract": "PaymentReceiver",
+          "path": "contracts/PaymentReceiver.sol",
+          "label": "rewardsPoolAddress",
+          "astId": 124,
+          "type": "t_address",
+          "src": "488:33:1"
+        },
+        {
+          "contract": "PaymentReceiver",
+          "path": "contracts/PaymentReceiver.sol",
+          "label": "rewardsPoolPercentage",
+          "astId": 126,
+          "type": "t_uint256",
+          "src": "528:36:1"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 1333,
+          "type": "t_bool",
+          "src": "757:24:9"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 1335,
+          "type": "t_bool",
+          "src": "876:25:9"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 1397,
+          "type": "t_array:50<t_uint256>",
+          "src": "1982:29:9"
+        },
+        {
+          "contract": "AlunaToken",
+          "path": "contracts/AlunaToken.sol",
+          "label": "name",
+          "astId": 9,
+          "type": "t_string",
+          "src": "308:18:0"
+        },
+        {
+          "contract": "AlunaToken",
+          "path": "contracts/AlunaToken.sol",
+          "label": "symbol",
+          "astId": 11,
+          "type": "t_string",
+          "src": "332:20:0"
+        },
+        {
+          "contract": "AlunaToken",
+          "path": "contracts/AlunaToken.sol",
+          "label": "decimals",
+          "astId": 13,
+          "type": "t_uint8",
+          "src": "358:21:0"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": true,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "importsVanillaContracts": [
+          "ownership/Ownable.sol",
+          "GSN/Context.sol",
+          "token/ERC20/ERC20Burnable.sol",
+          "token/ERC20/ERC20.sol",
+          "token/ERC20/IERC20.sol",
+          "math/SafeMath.sol"
+        ],
+        "uninitializedBaseContracts": [],
+        "storageUncheckedVars": [
+          {
+            "contract": "PaymentReceiver",
+            "path": "contracts/PaymentReceiver.sol",
+            "label": "payments",
+            "astId": 122,
+            "type": "t_mapping<t_struct<PaymentReceiver.Payment>>",
+            "src": "438:43:1"
+          }
+        ],
+        "storageDiff": []
+      }
+    }
+  },
   "solidityLibs": {},
-  "proxies": {},
+  "proxies": {
+    "aluna-smart-contracts/AlunaToken": [
+      {
+        "address": "0x07571adEA62f0F81888F596e8f3EE42f2f005fA1",
+        "version": "1.0.0",
+        "implementation": "0xC1be9DEa4dDDA82217331495fa553D0E991E2B43",
+        "admin": "0xA15AD0132c7F43e3333b4fFA73915114Db9F1807",
+        "kind": "Upgradeable"
+      }
+    ]
+  },
   "manifestVersion": "2.2",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "proxyAdmin": {
+    "address": "0xA15AD0132c7F43e3333b4fFA73915114Db9F1807"
+  }
 }

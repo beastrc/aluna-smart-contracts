@@ -1,11 +1,11 @@
 {
   "contracts": {
     "AlunaToken": {
-      "address": "0x21f1598b786fbf6b81E85f57E56faf83F78Fb59E",
-      "constructorCode": "608060405261001261006360201b60201c565b600380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b611aab806100766000396000f3fe",
-      "bodyBytecodeHash": "1172037a9c1354639ed41d8f7b36fcd35beee54c7573d655e63c1324c2189f2f",
-      "localBytecodeHash": "848fb0e4700fb075b2bb83c5b089a79bfa143b5cb442ac7b7162979be2440740",
-      "deployedBytecodeHash": "848fb0e4700fb075b2bb83c5b089a79bfa143b5cb442ac7b7162979be2440740",
+      "address": "0xe0f64F435Ba8392b0AEFf0024e406dF2aAb3b766",
+      "constructorCode": "608060405261001261006360201b60201c565b600380546001600160a01b0319166001600160a01b0392831617908190556040519116906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3610067565b3390565b611d03806100766000396000f3fe",
+      "bodyBytecodeHash": "34a55719d618e54fef4d6ca5f582743fcb4b7d8f2d6a769bd1440b588d30807f",
+      "localBytecodeHash": "5dbc45a273794a17b703dfcf01e714cd364f4eb5537f25396f8b05684160fe4c",
+      "deployedBytecodeHash": "5dbc45a273794a17b703dfcf01e714cd364f4eb5537f25396f8b05684160fe4c",
       "types": {
         "t_uint256": {
           "id": "t_uint256",
@@ -32,19 +32,19 @@
               "label": "value",
               "astId": 113,
               "type": "t_uint256",
-              "src": "240:13:1"
+              "src": "364:13:1"
             },
             {
               "label": "poolFee",
               "astId": 115,
               "type": "t_uint256",
-              "src": "263:15:1"
+              "src": "387:15:1"
             },
             {
               "label": "refunded",
               "astId": 117,
               "type": "t_bool",
-              "src": "288:13:1"
+              "src": "412:13:1"
             }
           ]
         },
@@ -116,7 +116,7 @@
           "label": "payments",
           "astId": 122,
           "type": "t_mapping<t_struct<PaymentReceiver.Payment>>",
-          "src": "314:43:1"
+          "src": "438:43:1"
         },
         {
           "contract": "PaymentReceiver",
@@ -124,7 +124,7 @@
           "label": "rewardsPoolAddress",
           "astId": 124,
           "type": "t_address",
-          "src": "364:33:1"
+          "src": "488:33:1"
         },
         {
           "contract": "PaymentReceiver",
@@ -132,31 +132,31 @@
           "label": "rewardsPoolPercentage",
           "astId": 126,
           "type": "t_uint256",
-          "src": "404:36:1"
+          "src": "528:36:1"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initialized",
-          "astId": 1299,
+          "astId": 1333,
           "type": "t_bool",
-          "src": "757:24:8"
+          "src": "757:24:9"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initializing",
-          "astId": 1301,
+          "astId": 1335,
           "type": "t_bool",
-          "src": "876:25:8"
+          "src": "876:25:9"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "______gap",
-          "astId": 1363,
+          "astId": 1397,
           "type": "t_array:50<t_uint256>",
-          "src": "1982:29:8"
+          "src": "1982:29:9"
         },
         {
           "contract": "AlunaToken",
@@ -191,6 +191,7 @@
         "importsVanillaContracts": [
           "ownership/Ownable.sol",
           "GSN/Context.sol",
+          "token/ERC20/ERC20Burnable.sol",
           "token/ERC20/ERC20.sol",
           "token/ERC20/IERC20.sol",
           "math/SafeMath.sol"
@@ -203,7 +204,7 @@
             "label": "payments",
             "astId": 122,
             "type": "t_mapping<t_struct<PaymentReceiver.Payment>>",
-            "src": "314:43:1"
+            "src": "438:43:1"
           }
         ],
         "storageDiff": []
@@ -296,7 +297,7 @@
       {
         "address": "0x8185bc4757572da2a610f887561c32298f1a5748",
         "version": "1.0.0",
-        "implementation": "0x21f1598b786fbf6b81E85f57E56faf83F78Fb59E",
+        "implementation": "0xe0f64F435Ba8392b0AEFf0024e406dF2aAb3b766",
         "admin": "0x7D4Dee3c8336cc7FEc3adb615F762d61Ca32D342",
         "kind": "Upgradeable"
       }

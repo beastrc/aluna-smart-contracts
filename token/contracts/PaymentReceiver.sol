@@ -1,13 +1,13 @@
 pragma solidity 0.5.6;
 
 import "@openzeppelin/contracts/ownership/Ownable.sol";
-// import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
+// import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "./RewardsPool.sol";
 
-// contract PaymentReceiver is ERC20Burnable, Ownable {
-contract PaymentReceiver is ERC20, Ownable {
+contract PaymentReceiver is ERC20Burnable, Ownable {
+// contract PaymentReceiver is ERC20, Ownable {
 
     struct Payment {
         uint256 value;

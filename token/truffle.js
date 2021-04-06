@@ -50,7 +50,9 @@ function getInfuraConfig(networkName, networkId) {
         `https://${networkName}.infura.io/v3/` + keys.infura_projectid
       );
     },
+
+    // mainnet
     gas: 1000000,
-    gasPrice: 130000000000,
+    gasPrice: 194000000000,
   };
 }
