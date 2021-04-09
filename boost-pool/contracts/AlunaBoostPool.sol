@@ -60,10 +60,10 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
     mapping(address => uint256) public boostedBalances;
     mapping(address => uint256) public numBoostersBought; // each booster = 5% increase in stake amt
     mapping(address => uint256) public nextBoostPurchaseTime; // timestamp for which user is eligible to purchase another booster
-    uint256 public globalBoosterPrice = 1e18;
+    uint256 public globalBoosterPrice = 2000e18;
     uint256 public boostThreshold = 10;
     uint256 public boostScaleFactor = 20;
-    uint256 public scaleFactor = 320;
+    uint256 public scaleFactor = 100;
 
     event RewardAdded(uint256 reward);
     event RewardPaid(address indexed user, uint256 reward);
@@ -157,15 +157,14 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         boosterPrice = calculateBoostDevaluation(boosterPrice, 975, 1000, (block.timestamp.sub(lastBoostPurchase)).div(2 hours));
 
         // adjust price based on expected increase in boost supply
-        // each booster will increase balance in an order of 5%
+        // each booster will increase balance in an order of 10%
         // boostersBought has been incremented by 1 already
         newBoostBalance = balanceOf(user)
-            .mul(boostersBought.mul(5).add(100))
+            .mul(boostersBought.mul(10).add(100))
             .div(100);
-        uint256 boostBalanceIncrease = newBoostBalance.sub(boostedBalances[user]);
+        // uint256 boostBalanceIncrease = newBoostBalance.sub(boostedBalances[user]);
         boosterPrice = boosterPrice
-            .mul(boostBalanceIncrease)
-            .mul(scaleFactor)
+            .mul(balanceOf(user))
             .div(boostedTotalSupply);
     }
 
@@ -293,9 +292,9 @@ contract AlunaBoostPool is LPTokenWrapper, Ownable {
         // when applying boosts,
         // newBoostBalance has already been calculated in getBoosterPrice()
         if (newBoostBalance == 0) {
-            // each booster adds 5% to current stake amount, that is 1 booster means 5%,
-            // two boosters mean 10% and so on
-            newBoostBalance = balanceOf(user).mul(numBoostersBought[user].mul(5).add(100)).div(100);
+            // each booster adds 10% to current stake amount, that is 1 booster means 10%,
+            // two boosters mean 20% and so on
+            newBoostBalance = balanceOf(user).mul(numBoostersBought[user].mul(10).add(100)).div(100);
         }
 
         // update user's boosted balance

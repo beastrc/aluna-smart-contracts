@@ -52,9 +52,8 @@ $ npx buidler deploy:mock-tokens --network kovan
 ```
 
 - kovan tests
-BoostToken - 0x15A1714400e6aF8b82e4612C5BA36Da88dA717a3
-AlunaToken - 0x005882F1334f76e798fFBE7ec3a220e1Fd0175fd
-Stable     - 0x4004c6CEB0871dE5F202334A4036700B015aa5f2
+AlunaToken - 0xdbd2Ab43e210587a5baE17BBd82650796C480f3a
+Stable     - 0x834556CeC62ee21e4c9C318A22FA0d0F7DbBcD1e
 
 2. In order to deploy Aluna Governance, you need to setup `gov` settings on ./scripts/_settings.js.
 
@@ -63,8 +62,8 @@ $ npx buidler deploy:governance --network {kovan or mainnet}
 ```
 
 - kovan tests
-Treasury   - 0xA8572E81A2043D87A9CBa0c46E279671B0A8cc4A
-Governance - 0x6eA81B3F1152e63DFf43F5C87eda55574502b0Ee
+Treasury   - 0x6cFE3e66eFAe6C30A93a8B4eDA720FEb34d8c63b
+Governance - 0x0b5597B2D28407c67045040CBe8bf7c7C15b2a84
 
 3. In order to deploy Pools you need to define the pool on ./scripts/_settings.js 
 
@@ -73,4 +72,4 @@ $ npx buidler deploy:pool --pool {your pool name} --network {kovan or mainnet}
 ```
 
 -kovan tests
-ALN_ETH Pool - 0x0B1b5eD98935a7bd304385e5E90f84501FD60082
+ALN Pool - 0xE15C4c314b34BF72b0cB34D81492416Cf08b3960

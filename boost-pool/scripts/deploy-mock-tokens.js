@@ -9,20 +9,21 @@ task('deploy:mock-tokens', 'Deploy mock tokens to test net')
 .setAction(async () => {
   network = await ethers.provider.getNetwork();
   
-  const BoostToken = await ethers.getContractFactory('BoostToken')
+  // const BoostToken = await ethers.getContractFactory('BoostToken')
   const AlunaToken = await ethers.getContractFactory('Token')
   const Stable = await ethers.getContractFactory('Token')
 
   // compile contracts
   //await bre.run("compile");
 
+  // we don't use boost token anymore
   //Deploy Boost
-  console.log('Deploying BoostToken');
-  const boostToken = await BoostToken.deploy()
-  await boostToken.deployed()
+  // console.log('Deploying BoostToken');
+  // const boostToken = await BoostToken.deploy()
+  // await boostToken.deployed()
 
-  console.log(`Boost address: ${boostToken.address}`);
-  await pressToContinue();
+  // console.log(`Boost address: ${boostToken.address}`);
+  // await pressToContinue();
 
   //Deploy Aluna
   console.log('Deploying AlunaToken');

@@ -24,7 +24,10 @@ task('deploy:governance', 'deploy Aluna Governance').setAction(async (taskArgs, 
  
   console.log('Deploying Treasury');
   const govSettings = settings[network.name].gov;
-  console.log (govSettings)
+
+  console.log("uniswapRouter: ", uniswapRouter)
+  console.log("stableCoin   : ", govSettings.stableCoin)
+  console.log("newOwner     : ", govSettings.newOwner)
 
   const Treasury = await ethers.getContractFactory('Treasury');
   const treasury = await Treasury.deploy(
@@ -36,11 +39,17 @@ task('deploy:governance', 'deploy Aluna Governance').setAction(async (taskArgs, 
 
   await treasury.deployed();
 
+  console.log('')
   console.log(`treasury address: ${treasury.address}`);
+  console.log('')
   await pressToContinue();
 
   // deploy governance
   console.log('Deploying gov');
+
+  console.log("alunaTokenAddress: ", govSettings.alunaTokenAddress)
+  console.log("treasury.address : ", treasury.address)
+  console.log("uniswapRouter    : ", uniswapRouter)
 
   const Gov = await ethers.getContractFactory('AlunaGov');
   const gov = await Gov.deploy(
@@ -50,7 +59,9 @@ task('deploy:governance', 'deploy Aluna Governance').setAction(async (taskArgs, 
   );
   await gov.deployed();
 
+  console.log('')
   console.log(`gov address: ${gov.address}`);
+  console.log('')
 
   await pressToContinue();
 
