@@ -16,6 +16,7 @@ This project uses [oz cli](https://docs.openzeppelin.com/cli/2.7/).
 Make sure to install required dependencies:
 ```
 $ npm install
+$ npm install @openzeppelin/cli
 ```
 
 To compile the contracts:
@@ -49,9 +50,3 @@ All implementations are up to date
 ? revocable: bool: {True or False}
 ✓ Instance created at {Contract Address}
 ```
-
-
-
-
-
-

@@ -32,5 +32,8 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/onepercent_devs/aluna-token-vesting#readme"
+  "homepage": "https://bitbucket.org/onepercent_devs/aluna-token-vesting#readme",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2"
+  }
 }

@@ -1,6 +1,6 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
-const infura_key = ""
+const infura_key = "";
 const mnemonic = () => {
   return "";
 };
@@ -47,8 +47,8 @@ module.exports = {
         );
       },
       network_id: 1,
-      gas: 4000000,
-      gasPrice: 190 * ONE_GWEI,
+      gas: 1000000,
+      gasPrice: 41 * ONE_GWEI,
       timeoutBlocks: 200,
     },
   },
